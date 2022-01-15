@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <title>Book Library</title>
+    </head>
+
+    <body>
+
+        <div class="darkened"></div>
+        <div class="header">
+            <span class="title">Book Library</span>
+            <button class="addBook">Add Book</button>
+        </div>
+        <div class="form noDisplay">
+            <button class="cancel">X</button>
+            <form action="" id="bookForm">
+                <input type="text" id="bookName" placeholder="Book Title" required>
+                <input type="text" id="bookAuthor" placeholder="Book Author" required>
+                <input type="number" min="1" placeholder="Page Count" id="pageCount" required>
+                <div class="checker">
+                    <label for="readCheck">Have you read it?</label>
+                    <input type="checkbox" id="hasItBeenRead" name="readCheck">
+                </div>
+                <button class="create" type="submit">Create Book</button>
+            </form>
+        </div>
+        <div class="books">
+        </div>
+    </body>
+</html>
