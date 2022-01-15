@@ -138,16 +138,6 @@ function Book(title, author, pages, read, id) {
     this.pages = pages;
     this.read = read;
     this.id = id;
-    this.info = function() {
-        information = title + " by " + author + ", " + pages + " pages, ";
-        if (read == true) {
-            information += "already read.";
-        }
-        else {
-            information += "not read yet";
-        }
-        return information;
-    }
 }
 
 
