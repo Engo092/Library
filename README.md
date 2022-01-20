@@ -1,6 +1,6 @@
-# Library Project
+# Library Project (Class Update)
 
-This is my first project after the Foundations path of The Odin Project, it showcases some more Javascript and DOM manipulation skills, but its main purpose is to be an introduction to constructors in Javascript.
+This is my first project after the Foundations path of The Odin Project, it showcases some more Javascript and DOM manipulation skills. Initially its main purpose was as an introduction to Javascript constructors, but this new version instead replaces the constructor with class, being an introduction to that concept.
 
 In this project you can add books to your library by clicking the "Add Book" button on the page, which will ask for the book title, author, page count and whether you have read it or not. This book will then be displayed on the page and locally stored in your browser, which means that if you close the page tab or even your computer, the books will stay there. Each book is its own "card", and you can toggle between having read the book or not, as well as remove them if you desire.
 
