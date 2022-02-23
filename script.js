@@ -138,6 +138,23 @@ pageCountInput.addEventListener('input', () => {
     }
 });
 
+// Following code is a very simple form validation
+const bookName = document.getElementById('bookName');
+bookName.addEventListener('input', () => {
+    bookName.setCustomValidity('');
+    if (bookName.value === '') {
+        bookName.setCustomValidity('Please enter a title');
+    }
+});
+
+const bookAuthor = document.getElementById('bookAuthor');
+bookAuthor.addEventListener('input', () => {
+    bookAuthor.setCustomValidity('');
+    if (bookAuthor.value === '') {
+        bookAuthor.setCustomValidity('Please enter an author');
+    }
+});
+
 
 
 class Book {
