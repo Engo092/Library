@@ -96,7 +96,7 @@ for (let i = 0; i < remove.length; i++) {
         }
         
     });
-};
+}
 
 
 // Toogles between having read a book or not
@@ -128,7 +128,15 @@ for (let i = 0; i < readButton.length; i++) {
             }
         }
     });
-};
+}
+
+const pageCountInput = document.getElementById('pageCount');
+pageCountInput.addEventListener('input', () => {
+    pageCountInput.setCustomValidity('');
+    if (!document.getElementById('pageCount').checkValidity()) {
+        pageCountInput.setCustomValidity('Please enter a number above 0');
+    }
+});
 
 
 
