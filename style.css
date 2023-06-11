@@ -9,7 +9,7 @@ body {
 .header {
     display: flex;
     background-color: rgb(145, 145, 145);
-    font-size: max(7vh, 36px);
+    font-size: max(7vh, 42px);
 }
 
 .title {
@@ -211,4 +211,10 @@ input[type="checkbox"] {
     border-width: 2px;
     background-color: rgb(243, 243, 118);
     padding: 10px;
+}
+
+@media screen and (max-width: 450px) {
+    .form {
+        width: 300px;
+    }
 }

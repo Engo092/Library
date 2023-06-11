@@ -3,6 +3,7 @@ let dark = document.querySelector(".darkened");
 let myLibrary = [];
 let idNum;
 
+// starts local storage on the browser
 if (localStorage.getItem("myLibrary") === null || localStorage.getItem("myLibrary").length == 0) {
     idNum = 0;
     localStorage.setItem("idNum", JSON.stringify(idNum));
@@ -13,7 +14,18 @@ myLibrary = JSON.parse(localStorage.getItem("myLibrary") || "[]");
 idNum = parseInt(localStorage.getItem("idNum"));
 
 
-// Following code is to load all books in the page HTML
+class Book {
+    constructor(title, author, pages, read, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = id;
+    }
+}
+
+
+// loads all books in the HTML
 for (let i = 0; i < myLibrary.length; i++) {
     let book = document.createElement("div");
     book.classList.add("book");
@@ -37,8 +49,7 @@ for (let i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].read == true) {
         buttonRead.classList.add("read");
         buttonRead.innerText = "Read";
-    }
-    else{
+    } else{
         buttonRead.classList.add("noRead");
         buttonRead.innerText = "Not Read";
     }
@@ -94,7 +105,6 @@ for (let i = 0; i < remove.length; i++) {
                 window.location.reload();
             }
         }
-        
     });
 }
 
@@ -115,8 +125,7 @@ for (let i = 0; i < readButton.length; i++) {
                     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
                 }
             }
-        }
-        else {
+        } else {
             readButton[i].classList.remove("noRead");
             readButton[i].classList.add("read");
             readButton[i].innerHTML = "Read";
@@ -130,15 +139,15 @@ for (let i = 0; i < readButton.length; i++) {
     });
 }
 
+// Following code is a very simple form validation
 const pageCountInput = document.getElementById('pageCount');
 pageCountInput.addEventListener('input', () => {
     pageCountInput.setCustomValidity('');
-    if (!document.getElementById('pageCount').checkValidity()) {
+    if (!pageCountInput.checkValidity()) {
         pageCountInput.setCustomValidity('Please enter a number above 0');
     }
 });
 
-// Following code is a very simple form validation
 const bookName = document.getElementById('bookName');
 bookName.addEventListener('input', () => {
     bookName.setCustomValidity('');
@@ -156,28 +165,14 @@ bookAuthor.addEventListener('input', () => {
 });
 
 
-
-class Book {
-    constructor(title, author, pages, read, id) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
-        this.id = id;
-    }
-}
-
-
-
 function addBookToLibrary() {
     let title = document.getElementById("bookName").value;
     let author = document.getElementById("bookAuthor").value;
-    let pages = document.getElementById("pageCount").value;
+    let pages = document.getElementById("pageCount").valueAsNumber;
     let read;
     if (document.getElementById("hasItBeenRead").checked) {
         read = true;
-    }
-    else {
+    } else {
         read = false;
     }
     let newBook = new Book(title, author, pages, read, idNum);
